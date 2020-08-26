@@ -1,0 +1,43 @@
+@import "../../css/_mixin";
+
+.time-input {
+    border: 1px solid @color-neutral-grey-light-2;
+    display: flex;
+    flex-direction: row;
+    .border-radius(1);
+
+    &.focused {
+        border-color: @color-primary;
+    }
+
+    &:not(.focused) {
+        &.is-empty {
+            .template-input {
+                *, input {
+                    color: @color-neutral-grey-middle;
+                }
+            }
+        }
+    }
+
+    .template-input {
+        padding: 4px;
+        flex-grow: 1;
+    }
+
+    .clear-button {
+        color: @color-semantic-danger;
+        width: @standard-input-height - 2px;
+        height: @standard-input-height - 2px;
+    }
+
+    .clock-button {
+        color: @color-primary;
+        width: @standard-input-height - 2px;
+        height: @standard-input-height - 2px;
+    }
+}
+
+.time-picker-dropdown {
+    padding: 5px;
+}

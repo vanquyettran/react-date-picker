@@ -1,0 +1,54 @@
+@import "../../css/_mixin";
+
+.date-range-preset-picker {
+    .preset-group {
+        &:not(:first-child) {
+            margin-top: 18px;
+        }
+
+        .group-name {
+            .font-h4();
+        }
+
+        .group-content {
+            margin-top: 6px;
+
+            ul {
+                li {
+                    width: 150px;
+                    float: left;
+                    padding: 10px;
+                    list-style: none;
+                    .text-select-disabled();
+
+                    &:nth-child(4n + 1) {
+                        clear: left;
+                    }
+
+                    &.is-valid {
+                        cursor: pointer;
+
+                        &:hover {
+                            background: @colorv-grey-light-3;
+                        }
+
+                        &.is-picked {
+                            background: @color-primary;
+                            color: @colorv-white;
+                        }
+                    }
+
+                    &:not(.is-valid) {
+                        cursor: not-allowed;
+                        color: @colorv-grey-middle;
+
+                        &.is-picked {
+                            background: @colorv-grey-middle;
+                            color: @colorv-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

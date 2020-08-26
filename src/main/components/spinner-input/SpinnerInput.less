@@ -1,0 +1,45 @@
+@import "../../css/_mixin";
+
+.spinner-input {
+    .text-select-disabled();
+
+    .head,
+    .foot {
+        text-align: center;
+        line-height: 20px;
+        padding: 0 10px;
+
+        &.active {
+            cursor: pointer;
+
+            &:hover {
+                color: @color-primary;
+            }
+
+            &:active {
+                .color-active(@color-primary);
+            }
+        }
+
+        &:not(.active) {
+            cursor: default;
+            color: @colorv-grey-light-1;
+        }
+    }
+
+    .body {
+        ul {
+            list-style: none;
+
+            li {
+                padding: 0 10px;
+                line-height: 20px;
+                white-space: nowrap;
+
+                &.selected {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

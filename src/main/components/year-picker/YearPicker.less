@@ -1,0 +1,100 @@
+@import "../../css/_mixin";
+
+.year-picker {
+    .text-select-disabled();
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        background: @colorv-white;
+        min-width: 189px;
+
+        td {
+            cursor: default;
+            border: none;
+            padding: 5px;
+        }
+
+        td.year-cell {
+            cursor: pointer;
+            text-align: center;
+            white-space: nowrap;
+            padding: 10px;
+            min-width: 63px;
+            height: 43px;
+
+            &:not(.is-valid) {
+                cursor: not-allowed;
+            }
+
+            &.is-in-shown-decade {
+                &.is-valid {
+                    &:hover {
+                        background: @colorv-grey-light-4;
+                    }
+                }
+
+                &:not(.is-valid) {
+                    color: @colorv-grey-middle;
+                }
+
+                &.is-current-year {
+                    &.is-valid {
+                        color: @colorv-red;
+                    }
+
+                    &:not(.is-valid) {
+                        color: lighten(@colorv-red, 25%);
+                    }
+                }
+            }
+
+            &:not(.is-in-shown-decade) {
+                color: @colorv-grey-light-1;
+
+                &.is-valid {
+                    &:hover {
+                        color: @colorv-grey-middle;
+                        background: @colorv-grey-light-4;
+                    }
+                }
+            }
+        }
+
+        td.decade-cell {
+            text-align: center;
+            font-weight: bold;
+            height: 26px;
+        }
+
+        td.decade-backward-cell,
+        td.decade-forward-cell {
+            text-align: center;
+            cursor: pointer;
+            height: 26px;
+            width: 27px;
+
+            &:hover {
+                background: @colorv-grey-light-4;
+            }
+        }
+    }
+
+    &.is-picked {
+        table {
+            td.year-cell {
+                &.is-picked-year {
+                    &.is-valid {
+                        background: @color-primary;
+                        color: @colorv-white;
+                    }
+
+                    &:not(.is-valid) {
+                        background: @colorv-grey-middle;
+                        color: @colorv-white;
+                    }
+                }
+            }
+        }
+    }
+}

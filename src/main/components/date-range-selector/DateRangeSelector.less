@@ -1,0 +1,144 @@
+@import "../../css/_mixin";
+
+.date-range-selector {
+    border: 1px solid @color-neutral-grey-light-2;
+    display: flex;
+    flex-direction: row;
+    .border-radius(1);
+
+    &.focused:not(.disabled) {
+        border-color: @color-primary;
+    }
+
+    &:not(.focused) {
+        &.is-empty {
+            .template-input {
+                *, input {
+                    color: @color-neutral-grey-middle;
+                }
+            }
+        }
+    }
+
+    .template-input {
+        padding: 4px;
+        flex-grow: 1;
+    }
+
+    .calendar-button {
+        color: @color-primary;
+        width: @standard-input-height - 2px;
+        height: @standard-input-height - 2px;
+    }
+
+    &.disabled {
+        .clear-button {
+            cursor: default;
+        }
+
+        .calendar-button {
+            color: @colorv-grey-middle;
+            cursor: default;
+        }
+    }
+}
+
+.date-range-picker-dropdown {
+    padding: 10px;
+
+    .bottom-area {
+        padding-top: 10px;
+
+        & > :not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+
+    .result-bar {
+        padding: 10px 12px 0;
+        border-top: 1px solid @colorv-grey-light-3;
+        .font-body-small();
+
+        .success {
+            color: @color-success;
+        }
+
+        .error {
+            color: @color-danger;
+        }
+
+        .icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5em;
+            font-size: 14px;
+        }
+
+        .text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .action-bar {
+        padding: 10px 0 0;
+        border-top: 1px solid @colorv-grey-light-3;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+
+        .button-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+
+            & > :not(:last-child) {
+                margin: 0 16px 0 0;
+            }
+        }
+
+        button {
+            display: block;
+            padding: 6px 12px;
+            text-align: center;
+            cursor: pointer;
+            .border-radius(1);
+            .font-button-small();
+        }
+
+        .preset-button {
+            cursor: pointer;
+            color: @color-neutral-grey-deep;
+
+            &:hover {
+                color: @color-neutral-grey-dark;
+            }
+        }
+
+        .cancel-button {
+            cursor: pointer;
+            color: @color-neutral-grey-dark;
+
+            &:hover {
+                color: @color-neutral-grey-middle;
+            }
+        }
+
+        .submit-button {
+            &:not(:disabled) {
+                cursor: pointer;
+                color: @color-white;
+                .background-interactive(@color-primary);
+            }
+
+            &:disabled {
+                cursor: default;
+                background: @color-neutral-grey-faint-2;
+                color: @color-neutral-grey-light-2;
+            }
+        }
+    }
+}

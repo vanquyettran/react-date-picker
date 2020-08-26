@@ -1,0 +1,110 @@
+@import "../../css/_mixin";
+
+.date-picker {
+    .text-select-disabled();
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        background: @colorv-white;
+        min-width: 189px;
+
+        td {
+            cursor: default;
+            border: none;
+            padding: 5px;
+            height: 26px;
+        }
+
+        td.weekday-cell {
+            text-align: right;
+            padding: 5px 5px 5px 0;
+            min-width: 27px;
+        }
+
+        td.date-cell {
+            cursor: pointer;
+            text-align: right;
+            padding: 5px 5px 5px 0;
+            min-width: 27px;
+
+            &:not(.is-valid) {
+                cursor: not-allowed;
+            }
+
+            &.is-in-shown-month {
+                &.is-valid {
+                    &:hover {
+                        background: @colorv-grey-light-4;
+                    }
+                }
+
+                &:not(.is-valid) {
+                    color: @colorv-grey-middle;
+                }
+
+                &.is-today {
+                    &.is-valid {
+                        color: @colorv-red;
+                    }
+
+                    &:not(.is-valid) {
+                        color: lighten(@colorv-red, 20%);
+                    }
+                }
+            }
+
+            &:not(.is-in-shown-month) {
+                color: @colorv-grey-light-1;
+
+                &.is-valid {
+                    &:hover {
+                        color: @colorv-grey-middle;
+                        background: @colorv-grey-light-4;
+                    }
+                }
+            }
+        }
+
+        td.year-month-cell {
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                background: @colorv-grey-light-4;
+            }
+        }
+
+        td.month-backward-cell,
+        td.month-forward-cell {
+            text-align: center;
+            cursor: pointer;
+            width: 27px;
+
+            &:hover {
+                background: @colorv-grey-light-4;
+            }
+        }
+    }
+
+    &.is-picked {
+        table {
+            td.date-cell {
+                &.is-in-shown-month {
+                    &.is-picked-date {
+                        &.is-valid {
+                            background: @color-primary;
+                            color: @colorv-white;
+                        }
+
+                        &:not(.is-valid) {
+                            background: @colorv-grey-middle;
+                            color: @colorv-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

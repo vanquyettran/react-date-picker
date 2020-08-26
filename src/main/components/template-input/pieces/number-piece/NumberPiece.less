@@ -1,0 +1,18 @@
+@import "../../../../css/_mixin";
+
+.template-input .number-piece {
+
+    input {
+        border: none;
+        background: @colorv-white;
+        width: 0; // note that min-width is set by JS
+        caret-color: transparent;
+    }
+
+    &.focused {
+        input {
+            background: @color-primary;
+            color: @colorv-white;
+        }
+    }
+}

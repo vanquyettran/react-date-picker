@@ -1,0 +1,108 @@
+@import "../../css/_mixin";
+
+.tooltip {
+    .tooltip-inner {
+        .content {
+            font-size: 0.9em;
+
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .close-button-wrapper {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        position: absolute;
+        right: -9px;
+        top: -9px;
+        opacity: 1;
+        transition: opacity 200ms;
+    }
+
+    .close-button {
+        padding: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 10px;
+        background: @colorv-white;
+
+        .icon {
+            color: @color-neutral-grey-middle;
+
+            // small font size help centering more accuracy
+            font-size: 2px;
+            // then scale up to 8px
+            transform: scale(4);
+        }
+
+        &:hover .icon {
+            color: @color-neutral-grey-dark;
+        }
+    }
+
+    &:not(:hover) {
+        .close-button-wrapper {
+            opacity: 0;
+            transition-delay: 1s;
+        }
+    }
+}
+
+.dropdown-component.tooltip-dropdown {
+    background: transparent;
+
+    &.appearance-hard {
+        .dropdown-inner {
+            background: @colorv-white;
+        }
+        .box-shadow(3);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    &.appearance-soft {
+        .dropdown-inner {
+            background: fade(@colorv-white, 85%);
+        }
+        .box-shadow(1);
+        border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+}
+
+.dropdown-pointer.tooltip-dropdown-pointer {
+    z-index: 100011;
+    background: transparent;
+
+    &.appearance-hard {
+        .dropdown-pointer-inner {
+            background: @colorv-white;
+        }
+
+        &[data-direction="down"] {
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &[data-direction="up"] {
+            border-color: rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &.appearance-soft {
+        .dropdown-pointer-inner {
+            background: fade(@colorv-white, 85%);
+        }
+
+        &[data-direction="down"] {
+            border-color: rgba(0, 0, 0, 0.045);
+        }
+
+        &[data-direction="up"] {
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+    }
+}

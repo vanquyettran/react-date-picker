@@ -1,0 +1,50 @@
+{
+  "name": "react-date-picker",
+  "version": "1.0.0",
+  "description": "React date picker",
+  "keywords": [
+    "React date picker",
+    "React date range picker",
+    "React date input",
+    "React date range input",
+    "React month picker",
+    "React year picker"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "echo Only support browser environment",
+    "test": "node bin/jest",
+    "build": "node bin/gulp --dist && node bin/webpack && node bin/webpack --min",
+    "watch": "concurrently \"node bin/gulp --watch\" \"node bin/webpack --watch\"",
+    "postinstall": "npm run build"
+  },
+  "author": "Tran Van Quyet",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "concurrently": "^5.1.0",
+    "css-loader": "3.3.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-iconfont": "^10.0.3",
+    "gulp-iconfont-css": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "jest": "^26.0.1",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "style-loader": "^1.1.4",
+    "path": "^0.12.7",
+    "webpack": "^4.43.0"
+  }
+}

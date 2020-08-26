@@ -1,0 +1,226 @@
+@import "./values/_color.less";
+@import "./values/_dimension.less";
+@import "./values/_duration.less";
+
+
+.box-shadow(@level) when (@level = 1) {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+.box-shadow(@level) when (@level = 2) {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+.box-shadow(@level) when (@level = 3) {
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.15);
+}
+.box-shadow(@level) when (@level = 4) {
+    box-shadow: 0px 20px 32px rgba(0, 0, 0, 0.15);
+}
+
+.border-radius(@level) when (@level = 1) {
+    border-radius: 3px;
+}
+.border-radius(@level) when (@level = 2) {
+    border-radius: 4px;
+}
+
+// BACKGROUND STATES
+.background-hover(@color) {
+    background: darken(@color, 3%);
+}
+.background-active(@color) {
+    background: darken(@color, 5%);
+}
+.background-interactive(@color) {
+    background: @color;
+    &:hover {
+        .background-hover(@color);
+    }
+    &:active {
+        .background-active(@color);
+    }
+}
+.background-disabled(@color) {
+    background: fade(@color, 30%);
+}
+
+
+// COLOR STATES
+.color-hover(@color) {
+    color: darken(@color, 3%);
+}
+.color-active(@color) {
+    color: darken(@color, 5%);
+}
+.color-interactive(@color) {
+    color: @color;
+    &:hover {
+        .color-hover(@color);
+    }
+    &:active {
+        .color-active(@color);
+    }
+}
+.color-disabled(@color) {
+    color: fade(@color, 30%);
+}
+
+
+// BORDER COLOR INTERACTIVE
+.border-color-hover(@color) {
+    border-color: darken(@color, 3%);
+}
+.border-color-active(@color) {
+    border-color: darken(@color, 5%);
+}
+.border-color-interactive(@color) {
+    border-color: @color;
+    &:hover {
+        .border-color-hover(@color);
+    }
+    &:active {
+        .border-color-active(@color);
+    }
+}
+.border-color-disabled(@color) {
+    border-color: fade(@color, 30%);
+}
+
+.clear() {
+    &:before,
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+        height: 0;
+        padding: 0;
+    }
+}
+
+.placeholder(@rules) {
+    &::-webkit-input-placeholder {
+        @rules();
+    }
+    &:-moz-placeholder {
+        @rules();
+    }
+    &::-moz-placeholder {
+        @rules();
+    }
+    &:-ms-input-placeholder {
+        @rules();
+    }
+}
+
+.font-h1() {
+    font-size: 24px;
+    font-weight: 600;
+}
+.font-h2() {
+    font-size: 18px;
+    font-weight: 600;
+}
+.font-h3() {
+    font-size: 15px;
+    font-weight: 600;
+}
+.font-h4() {
+    font-size: 13px;
+    font-weight: 600;
+}
+.font-button() {
+    font-size: 14px;
+    font-weight: 600;
+}
+.font-button-small() {
+    font-size: 11px;
+    font-weight: 600;
+}
+.font-body() {
+    font-size: 12px;
+    font-weight: normal;
+}
+.font-body-bold() {
+    font-size: 12px;
+    font-weight: bold;
+}
+.font-body-small() {
+    font-size: 10px;
+    font-weight: normal;
+}
+.font-caption() {
+    font-size: 12px;
+    font-weight: normal;
+}
+.font-caption-small() {
+    font-size: 10px;
+    font-weight: normal;
+}
+.font-link() {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.custom-scrollbar(
+    @trackBg: @color-neutral-grey-faint-2,
+     @thumbBg: @color-neutral-grey-light-1,
+      @hoveredThumbBg: @color-neutral-grey-middle
+) {
+    // width
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    // Track
+    ::-webkit-scrollbar-track {
+        background: @trackBg;
+    }
+
+    // Handle
+    ::-webkit-scrollbar-thumb {
+        width: 6px;
+        height: 6px;
+        border-radius: 6px;
+        background: @thumbBg;
+    }
+
+    // Handle on hover
+    ::-webkit-scrollbar-thumb:hover {
+        background: @hoveredThumbBg;
+    }
+}
+
+// TEXT SELECT
+.text-select-disabled() {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+// GRID
+.grid-item(@cols, @space, @start: 1) {
+    width: ~'calc(100% / @{cols} - @{space} + @{space} / @{cols})';
+    float: left;
+
+    &:not(:nth-child(@{cols}n + @{start})) {
+        margin-left: @space;
+    }
+
+    @cols_plus: @cols + @start;
+    &:nth-child(n + @{cols_plus}) {
+        margin-top: @space;
+    }
+
+    &:nth-child(@{cols}n + @{start}) {
+        clear: left;
+    }
+}
+
+// APPEARANCE
+.appearance(@value) {
+    -webkit-appearance: @value;
+    -moz-appearance: @value;
+    appearance: @value;
+}

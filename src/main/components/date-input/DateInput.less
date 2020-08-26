@@ -1,0 +1,54 @@
+@import "../../css/_mixin";
+
+.date-input {
+    border: 1px solid @color-neutral-grey-light-2;
+    display: flex;
+    flex-direction: row;
+    .border-radius(1);
+
+    &.focused:not(.disabled) {
+        border-color: @color-primary;
+    }
+
+    &:not(.focused) {
+        &.is-empty {
+            .template-input {
+                *, input {
+                    color: @color-neutral-grey-middle;
+                }
+            }
+        }
+    }
+
+    .template-input {
+        padding: 4px;
+        flex-grow: 1;
+    }
+
+    .clear-button {
+        color: @color-semantic-danger;
+        width: @standard-input-height - 2px;
+        height: @standard-input-height - 2px;
+    }
+
+    .calendar-button {
+        color: @color-primary;
+        width: @standard-input-height - 2px;
+        height: @standard-input-height - 2px;
+    }
+
+    &.disabled {
+        .clear-button {
+            cursor: default;
+        }
+
+        .calendar-button {
+            color: @colorv-grey-middle;
+            cursor: default;
+        }
+    }
+}
+
+.date-picker-dropdown {
+    padding: 5px;
+}

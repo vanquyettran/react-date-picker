@@ -1,0 +1,326 @@
+@import "../../css/_mixin";
+
+.date-range-picker {
+    .pickers {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        & > :not(:last-child) {
+            margin-right: 16px;
+        }
+    }
+
+    &.is-picked {
+        .start-col {
+            // date picker is focused
+
+            .date-picker.is-focused.is-picked.is-paired .date-cell.is-valid {
+                &.is-before-paired-date {
+                    &.is-before-focused-date {
+                        &.is-picked-date.is-in-shown-month {
+                            background: none;
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+                    }
+
+                    &.is-focused-date {
+                        &:not(.is-picked-date) {
+                            background: darken(@color-primary-faint, 10%);
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+
+                        &.is-picked-date:not(.is-in-shown-month) {
+                            background: @color-primary;
+                            color: @colorv-white;
+                        }
+                    }
+
+                    &.is-after-focused-date {
+                        background: @color-primary-faint;
+
+                        &:hover {
+                            background: darken(@color-primary-faint, 5%);
+                        }
+
+                        &.is-picked-date.is-in-shown-month {
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+                    }
+                }
+
+                &.is-paired-date {
+                    background: darken(@color-primary-faint, 10%);
+
+                    &.is-picked-date.is-focused-date {
+                        background: @color-primary;
+                        color: @colorv-white;
+                    }
+
+                    &.is-picked-date:not(.is-focused-date),
+                    &:not(.is-in-shown-month) {
+                        color: @color-text-normal;
+
+                        &.is-today {
+                            color: @colorv-red;
+                        }
+                    }
+                }
+            }
+
+            .date-picker.is-focused.is-picked.is-paired .date-cell:not(.is-valid) {
+                &.is-picked-date:not(.is-focused-date) {
+                    background: none;
+                    color: @colorv-grey-middle;
+
+                    &.is-today {
+                        color: lighten(@colorv-red, 20%);
+                    }
+
+                    &:not(.is-in-shown-month) {
+                        color: @colorv-grey-light-1;
+                    }
+                }
+            }
+
+            .date-picker.is-focused.is-picked:not(.is-paired) .date-cell.is-valid {
+
+            }
+
+            .date-picker.is-focused:not(.is-picked).is-paired .date-cell.is-valid {
+                &.is-before-paired-date {
+                    &.is-focused-date {
+                        &.is-picked-date,
+                        &.is-picked-date:not(.is-in-shown-month) {
+                            background: darken(@color-primary-faint, 10%);
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .date-picker.is-focused:not(.is-picked):not(.is-paired) .date-cell {
+
+            }
+
+
+
+            // date picker is not focused
+
+            .date-picker:not(.is-focused).is-picked.is-paired .date-cell.is-valid {
+                &.is-picked-date {
+                    &:not(.is-in-shown-month) {
+                        color: @colorv-white;
+                        background: @color-primary;
+                    }
+                }
+
+                &.is-after-picked-date {
+                    &.is-before-paired-date {
+                        background: @color-primary-faint;
+
+                        &:hover {
+                            background: darken(@color-primary-faint, 5%);
+                        }
+                    }
+
+                    &.is-paired-date {
+                        background: darken(@color-primary-faint, 10%);
+
+                        &:not(.is-in-shown-month) {
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .date-picker:not(.is-focused).is-picked:not(.is-paired) .date-cell.is-valid {
+
+            }
+
+            .date-picker:not(.is-focused):not(.is-picked).is-paired .date-cell.is-valid {
+
+            }
+
+            .date-picker:not(.is-focused):not(.is-picked):not(.is-paired) .date-cell.is-valid {
+
+            }
+        }
+
+        .end-col {
+            // date picker is focused
+
+            .date-picker.is-focused.is-picked.is-paired .date-cell.is-valid {
+                &.is-paired-date {
+                    background: darken(@color-primary-faint, 10%);
+
+                    &.is-picked-date.is-focused-date {
+                        background: @color-primary;
+                        color: @colorv-white;
+                    }
+
+                    &.is-picked-date:not(.is-focused-date),
+                    &:not(.is-in-shown-month) {
+                        color: @color-text-normal;
+
+                        &.is-today {
+                            color: @colorv-red;
+                        }
+                    }
+                }
+
+                &.is-after-paired-date {
+                    &.is-after-focused-date {
+                        &.is-picked-date.is-in-shown-month {
+                            background: none;
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+                    }
+
+                    &:not(.is-after-focused-date) {
+                        &.is-focused-date {
+                            &:not(.is-picked-date) {
+                                background: darken(@color-primary-faint, 10%);
+                                color: @color-text-normal;
+
+                                &.is-today {
+                                    color: @colorv-red;
+                                }
+                            }
+
+                            &.is-picked-date:not(.is-in-shown-month) {
+                                background: @color-primary;
+                                color: @colorv-white;
+                            }
+                        }
+
+                        &:not(.is-focused-date) {
+                            background: @color-primary-faint;
+
+                            &:hover {
+                                background: darken(@color-primary-faint, 5%);
+                            }
+
+                            &.is-picked-date.is-in-shown-month {
+                                color: @color-text-normal;
+
+                                &.is-today {
+                                    color: @colorv-red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .date-picker.is-focused.is-picked.is-paired .date-cell:not(.is-valid) {
+                &.is-picked-date:not(.is-focused-date) {
+                    background: none;
+                    color: @colorv-grey-middle;
+
+                    &.is-today {
+                        color: lighten(@colorv-red, 20%);
+                    }
+
+                    &:not(.is-in-shown-month) {
+                        color: @colorv-grey-light-1;
+                    }
+                }
+            }
+
+            .date-picker.is-focused.is-picked:not(.is-paired) .date-cell.is-valid {
+
+            }
+
+            .date-picker.is-focused:not(.is-picked).is-paired .date-cell.is-valid {
+                &.is-after-paired-date {
+                    &.is-before-focused-date {
+                        &.is-picked-date,
+                        &.is-picked-date:not(.is-in-shown-month) {
+                            background: darken(@color-primary-faint, 10%);
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .date-picker.is-focused:not(.is-picked):not(.is-paired) .date-cell.is-valid {
+
+            }
+
+
+
+            // date picker is not focused
+
+            .date-picker:not(.is-focused).is-picked.is-paired .date-cell.is-valid {
+                &.is-before-picked-date {
+                    &.is-paired-date {
+                        background: darken(@color-primary-faint, 10%);
+
+                        &:not(.is-in-shown-month) {
+                            color: @color-text-normal;
+
+                            &.is-today {
+                                color: @colorv-red;
+                            }
+                        }
+                    }
+
+                    &.is-after-paired-date {
+                        background: @color-primary-faint;
+
+                        &:hover {
+                            background: darken(@color-primary-faint, 5%);
+                        }
+                    }
+                }
+
+                &.is-picked-date,
+                &.is-picked-date:not(.is-in-shown-month) {
+                    color: @colorv-white;
+                    background: @color-primary;
+                }
+            }
+
+            .date-picker:not(.is-focused).is-picked:not(.is-paired) .date-cell.is-valid {
+
+            }
+
+            .date-picker:not(.is-focused):not(.is-picked).is-paired .date-cell.is-valid {
+
+            }
+
+            .date-picker:not(.is-focused):not(.is-picked):not(.is-paired) .date-cell.is-valid {
+
+            }
+        }
+    }
+}

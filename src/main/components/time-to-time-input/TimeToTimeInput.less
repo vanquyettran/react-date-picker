@@ -1,0 +1,17 @@
+@import "../../css/_mixin";
+
+.time-to-time-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    & > :not(:first-child) {
+        margin-left: 4px;
+    }
+
+    & > .time-input {
+        width: 150px;
+        flex-grow: 0.5;
+    }
+}
